@@ -11,28 +11,32 @@ ENV_DIR=$3
 
 VENDOR_DIR="vendor"
 
-
-echo "-----> Install telegram"
-
-DOWNLOAD_URL="http://github.com/vysheng/tg/archive/master.tar.gz"
-
-echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
-
-cd $BUILD_DIR
-mkdir -p $VENDOR_DIR
-cd $VENDOR_DIR
-curl -L --silent $DOWNLOAD_URL | tar xz
-
-echo "Build telegram-cli" | indent
-cd tg-master
-echo "Configure telegram-cli" | indent
-./configure --disable-liblua 
-echo "Make telegram-cli" | indent
+git clone --recursive https://github.com/vysheng/tg.git 
+cd tg
+./configure
 make
 
-echo "exporting PATH and LIBRARY_PATH" | indent
-PROFILE_PATH="$BUILD_DIR/.profile.d/telegram-cli.sh"
-mkdir -p $(dirname $PROFILE_PATH)
-echo ''
-echo 'export PATH="$PATH:$HOME/vendor/tg-master/bin"' >> $PROFILE_PATH
-echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/vendor/tg-master/bin"' >> $PROFILE_PATH
+#echo "-----> Install telegram"
+
+#DOWNLOAD_URL="http://github.com/vysheng/tg/archive/master.tar.gz"
+
+#echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
+
+#cd $BUILD_DIR
+#mkdir -p $VENDOR_DIR
+#cd $VENDOR_DIR
+#curl -L --silent $DOWNLOAD_URL | tar xz
+
+#echo "Build telegram-cli" | indent
+#cd tg-master
+#echo "Configure telegram-cli" | indent
+#./configure --disable-liblua 
+#echo "Make telegram-cli" | indent
+#make
+
+#echo "exporting PATH and LIBRARY_PATH" | indent
+#PROFILE_PATH="$BUILD_DIR/.profile.d/telegram-cli.sh"
+#mkdir -p $(dirname $PROFILE_PATH)
+#echo ''
+#echo 'export PATH="$PATH:$HOME/vendor/tg-master/bin"' >> $PROFILE_PATH
+#echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/vendor/tg-master/bin"' >> $PROFILE_PATH
