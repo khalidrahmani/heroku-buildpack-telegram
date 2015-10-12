@@ -13,7 +13,7 @@ VENDOR_DIR="vendor"
 
 git clone --recursive https://github.com/vysheng/tg.git 
 cd tg
-./configure
+./configure --disable-liblua
 make
 
 #echo "-----> Install telegram"
