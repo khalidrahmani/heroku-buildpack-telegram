@@ -21,7 +21,7 @@ cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
 git clone --recursive https://github.com/vysheng/tg.git  && cd tg
-./configure 
+./configure --disable-liblua
 make
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/telegram-cli.sh"
