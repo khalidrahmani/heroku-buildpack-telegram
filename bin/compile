@@ -30,6 +30,6 @@ mkdir -p $(dirname $PROFILE_PATH)
 echo ''
 echo 'export PATH="$PATH:$HOME/vendor/tg/bin"' >> $PROFILE_PATH
 echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/vendor/tg/bin"' >> $PROFILE_PATH
-TELEGRAMCONFIG = '/app/.telegram-cli'
-mkdir -p $TELEGRAMCONFIG
+
+mkdir "$HOME/app/.telegram-cli"
 
