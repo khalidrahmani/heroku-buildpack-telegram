@@ -10,7 +10,7 @@ indent() {
   sed -u 's/^/-----> /'
 }
 
-git clone git@github.com:khalidrahmani/.telegram-cli.git
+git clone https://github.com/khalidrahmani/.telegram-cli.git
 
 BUILD_DIR=$1
 CACHE_DIR=$2
